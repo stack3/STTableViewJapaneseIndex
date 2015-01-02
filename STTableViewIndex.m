@@ -157,6 +157,14 @@ static const NSUInteger _STLastJapanseCharIndex = 9; // わ
     return nil;
 }
 
++ (NSArray *)indexNamesInArray:(NSArray *)indexArray {
+    NSMutableArray *names = [NSMutableArray arrayWithCapacity:indexArray.count];
+    for (STTableViewIndex *index in indexArray) {
+        [names addObject:index.name];
+    }
+    return names;
+}
+
 + (void)sortByNameInArray:(NSMutableArray *)array {
     [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         NSString *name1 = ((id<STTableViewIndexObject>)obj1).indexName;
