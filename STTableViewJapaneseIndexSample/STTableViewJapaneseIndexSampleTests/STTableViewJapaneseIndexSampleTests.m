@@ -37,6 +37,12 @@
     [grapes addObject:[[STGrape alloc] initWithName:@"シャルドネ"]];
     [grapes addObject:[[STGrape alloc] initWithName:@"ソーヴィニヨン・ブラン"]];
     [grapes addObject:[[STGrape alloc] initWithName:@"リースリング"]];
+    [grapes addObject:[[STGrape alloc] initWithName:@"Melrot"]];
+    [grapes addObject:[[STGrape alloc] initWithName:@"Syrah"]];
+    [grapes addObject:[[STGrape alloc] initWithName:@"Cabernet Sauvignon"]];
+    [grapes addObject:[[STGrape alloc] initWithName:@"Chardonnay"]];
+    [grapes addObject:[[STGrape alloc] initWithName:@"Riesling"]];
+
     indexes = [STTableViewIndex generateIndexesFromObjects:grapes];
     XCTAssertEqual((NSUInteger)37, indexes.count);
     index = [STTableViewIndex findIndexByName:@"か" inArray:indexes];
@@ -56,6 +62,23 @@
     index = [STTableViewIndex findIndexByName:@"ら" inArray:indexes];
     XCTAssertEqual((NSUInteger)1, index.objects.count);
     XCTAssertEqualObjects(@"リースリング", [[index.objects objectAtIndex:0] name]);
+
+    index = [STTableViewIndex findIndexByName:@"C" inArray:indexes];
+    XCTAssertEqual((NSUInteger)2, index.objects.count);
+    XCTAssertEqualObjects(@"Cabernet Sauvignon", [[index.objects objectAtIndex:0] name]);
+    XCTAssertEqualObjects(@"Chardonnay", [[index.objects objectAtIndex:1] name]);
+
+    index = [STTableViewIndex findIndexByName:@"M" inArray:indexes];
+    XCTAssertEqual((NSUInteger)1, index.objects.count);
+    XCTAssertEqualObjects(@"Melrot", [[index.objects objectAtIndex:0] name]);
+
+    index = [STTableViewIndex findIndexByName:@"R" inArray:indexes];
+    XCTAssertEqual((NSUInteger)1, index.objects.count);
+    XCTAssertEqualObjects(@"Riesling", [[index.objects objectAtIndex:0] name]);
+
+    index = [STTableViewIndex findIndexByName:@"S" inArray:indexes];
+    XCTAssertEqual((NSUInteger)1, index.objects.count);
+    XCTAssertEqualObjects(@"Syrah", [[index.objects objectAtIndex:0] name]);
     //
     // 特殊系
     //

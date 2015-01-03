@@ -116,14 +116,13 @@ static const NSUInteger _STLastJapanseCharIndex = 9; // わ
     //
     for (; j < _STIndexCount - 1; j++) {
         unichar indexChar = _STIndexChars[j];
-        unichar nextIndexChar = _STIndexChars[j + 1];
         STTableViewIndex *index = [[STTableViewIndex alloc] initWithName:[NSString stringWithCharacters:&indexChar length:1]];
         [indexes addObject:index];
 
         for (int i = (int)objects.count - 1; i >= 0; i--) {
             id<STTableViewIndexObject> object = objects[i];
-            unichar objectIndexChar = [object.indexName characterAtIndex:0];
-            if (indexChar <= objectIndexChar && objectIndexChar < nextIndexChar) {
+            unichar objectIndexChar = [[object.indexName uppercaseString] characterAtIndex:0];
+            if (indexChar == objectIndexChar) {
                 [index.objects addObject:object];
                 [objects removeObjectAtIndex:i];
             }
