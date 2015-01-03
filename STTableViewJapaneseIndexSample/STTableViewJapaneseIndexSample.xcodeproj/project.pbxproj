@@ -145,6 +145,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1EC6107E1A562FE800AC3BBA /* Build configuration list for PBXNativeTarget "STTableViewJapaneseIndexSample" */;
 			buildPhases = (
+				1E1196761A57A59E00CDFE49 /* ShellScript */,
 				1EC610571A562FE700AC3BBA /* Sources */,
 				1EC610581A562FE700AC3BBA /* Frameworks */,
 				1EC610591A562FE700AC3BBA /* Resources */,
@@ -232,6 +233,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E1196761A57A59E00CDFE49 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nif [ -e ~/scripts/change-author.rb ]; then\n/bin/ruby ~/scripts/change-author.rb \"${SOURCE_ROOT}\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1EC610571A562FE700AC3BBA /* Sources */ = {
