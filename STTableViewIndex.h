@@ -27,6 +27,10 @@
  * STTableViewIndex配列から指定索引のSTTableViewIndexを返す
  */
 + (STTableViewIndex *)findIndexByName:(NSString *)name inArray:(NSArray *)indexArray;
+/**
+ * STTableViewIndex配列からnameの配列を得る
+ */
++ (NSArray *)indexNamesInArray:(NSArray *)indexArray;
 
 @end
 
